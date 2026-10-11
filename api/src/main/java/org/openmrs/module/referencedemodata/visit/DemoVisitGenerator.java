@@ -313,7 +313,7 @@ public class DemoVisitGenerator {
 		 * finished by now.
 		 */
 		static boolean admissionFitsBeforeNow(LocalDateTime visitStart, LocalDateTime now) {
-			return !visitStart.isAfter(now.minusDays(ADMISSION_DAYS_MAX + 1));
+			return !visitStart.isAfter(now.minusDays(ADMISSION_DAYS_MAX + 1L));
 		}
 	
 	protected Encounter createVisitNote(Patient patient, Date encounterTime, Location location, Provider provider) {
