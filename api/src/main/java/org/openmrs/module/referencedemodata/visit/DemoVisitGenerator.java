@@ -300,21 +300,21 @@ public class DemoVisitGenerator {
 		return visit;
 	}
 
-		/**
-		 * Visits of the same patient must not overlap, so a visit never starts before the previous one has ended.
-		 */
-		static LocalDateTime notBeforePreviousStop(LocalDateTime visitStart, LocalDateTime previousStop) {
-			LocalDateTime earliestStart = previousStop.plusMinutes(1);
-			return visitStart.isBefore(earliestStart) ? earliestStart : visitStart;
-		}
-		
-		/**
-		 * An admission lasts up to ADMISSION_DAYS_MAX days, so it can only be generated if it starts early enough to be
-		 * finished by now.
-		 */
-		static boolean admissionFitsBeforeNow(LocalDateTime visitStart, LocalDateTime now) {
-			return !visitStart.isAfter(now.minusDays(ADMISSION_DAYS_MAX + 1L));
-		}
+	/**
+	 * Visits of the same patient must not overlap, so a visit never starts before the previous one has ended.
+	 */
+	static LocalDateTime notBeforePreviousStop(LocalDateTime visitStart, LocalDateTime previousStop) {
+		LocalDateTime earliestStart = previousStop.plusMinutes(1);
+		return visitStart.isBefore(earliestStart) ? earliestStart : visitStart;
+	}
+	
+	/**
+	 * An admission lasts up to ADMISSION_DAYS_MAX days, so it can only be generated if it starts early enough to be
+	 * finished by now.
+	 */
+	static boolean admissionFitsBeforeNow(LocalDateTime visitStart, LocalDateTime now) {
+		return !visitStart.isAfter(now.minusDays(ADMISSION_DAYS_MAX + 1L));
+	}
 	
 	protected Encounter createVisitNote(Patient patient, Date encounterTime, Location location, Provider provider) {
 		Encounter visitNoteEncounter = createEncounter("Visit Note", patient, encounterTime, location, provider);
