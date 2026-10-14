@@ -40,7 +40,7 @@ import org.openmrs.api.VisitService;
 import org.openmrs.module.idgen.SequentialIdentifierGenerator;
 import org.openmrs.module.idgen.service.IdentifierSourceService;
 import org.openmrs.module.idgen.validator.LuhnMod30IdentifierValidator;
-import org.openmrs.module.referencedemodata.condition.DemoConditionGenerator; // check this package, see below
+import org.openmrs.module.referencedemodata.condition.DemoConditionGenerator;
 import org.openmrs.module.referencedemodata.diagnosis.DemoDiagnosisGenerator;
 import org.openmrs.module.referencedemodata.obs.DemoObsGenerator;
 import org.openmrs.module.referencedemodata.orders.DemoOrderGenerator;
